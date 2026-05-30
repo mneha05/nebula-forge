@@ -1,0 +1,13 @@
+:root{--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#7c3aed}
+html,body,#__next{height:100%}
+body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#071129 0%,#071022 100%);color:#e6eef8;margin:0}
+.container{max-width:900px;margin:32px auto;padding:24px}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.04);padding:18px;border-radius:12px}
+.chat{height:60vh;overflow:auto;padding:12px;border-radius:8px;background:rgba(255,255,255,0.01)}
+.message{margin:10px 0;padding:10px;border-radius:8px}
+.user{background:linear-gradient(90deg,rgba(124,58,237,0.12),rgba(124,58,237,0.06));text-align:right}
+.assistant{background:rgba(255,255,255,0.02)}
+.tool{background:rgba(14,165,233,0.06);border-left:3px solid rgba(14,165,233,0.4)}
+.inputRow{display:flex;gap:8px;margin-top:12px}
+input[type=text]{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+button{background:var(--accent);color:white;padding:10px 14px;border-radius:8px;border:0}
