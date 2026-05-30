@@ -1,161 +1,250 @@
 
-# NebulaForge — AI Agent Studio
+<div align="center">
 
-> NebulaForge is a modular, design-first AI tool-calling agent: pluggable tools, conversation memory, and a sleek UI-ready demo built with Next.js.
+# 🌌 NebulaForge
 
---------------------------------------------------------------------------------
+### AI Agent Studio — Modular, Intelligent, Elegant
 
-🎛️  Live Preview
+[![Next.js](https://img.shields.io/badge/Next.js-13+-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5+-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
+[![OpenAI](https://img.shields.io/badge/OpenAI-Integration-412991?style=for-the-badge&logo=openai)](https://openai.com)
 
-- Local: `http://localhost:3000`
-- Deploy: import to Vercel or any static + serverless host
+**Build intelligent conversational AI agents with pluggable tools, persistent memory, and a production-ready interface.**
 
---------------------------------------------------------------------------------
+[🚀 Get Started](#quick-start) • [📚 Documentation](#how-it-works) • [⚙️ Configuration](#configuration)
 
-🚀 Highlights
+</div>
 
-- **Modular tools:** Easily add/remove external tools (weather, converters, knowledge bases).
-- **Memory-first:** Conversation memory with optional file or SQLite backing.
-- **Pluggable LLMs:** Swap OpenAI or other LLMs in server-side code.
-- **Production-minded:** Rate-limits and payload guards for safer demos.
+---
 
---------------------------------------------------------------------------------
+## ✨ What is NebulaForge?
 
-📐 Project UI Design (README Mockup)
+NebulaForge is a **full-stack AI agent framework** that empowers you to build intelligent assistants without the complexity. Whether you need a chatbot that can fetch weather data, execute API calls, or interact with custom knowledge bases, NebulaForge handles the heavy lifting.
 
-Below is a compact UI mockup and flow to help visualize the product. Use it as a blueprint for the actual front-end implementation.
+It's designed for developers who want powerful AI capabilities without sacrificing code clarity or production readiness.
 
-```mermaid
-flowchart LR
-	subgraph Sidebar
-		A[App Logo\nNebulaForge] -->|nav| B(Conversations)
-		A --> C(Tools)
-		A --> D(Settings)
-	end
-	subgraph Main
-		E[Conversation Header\n(User, Model, Memory state)]
-		F[Message List]\n+    G[Composer \n(Input, Tool hints, Attachments)]
-		H[Tool Drawer \n(Select tool, params)]
-	end
-	Sidebar --> Main
-	E --> F --> G
-	G --> H
-```
+---
 
-Mockup notes:
+## 🎯 Core Features
 
-- Top-left hero shows the current conversation and quick actions.
-- Composer supports tool suggestions inline and automatic tool-call previews.
-- Tool Drawer exposes structured parameter forms for safe tool calls.
+<table>
+<tr>
+<td width="33%">
 
---------------------------------------------------------------------------------
+### 🔧 Modular Tools
+Plug-and-play tool integration. Add external services (weather APIs, calculators, databases) with minimal configuration.
 
-🎨 README UI Layout (Markdown + HTML)
+</td>
+<td width="33%">
 
-Use this layout in the README to make a modern, scannable presentation:
+### 💾 Conversation Memory
+Full conversation history with intelligent state management. Choose between file-based or SQLite backing for persistence.
 
-- Hero (ASCII/graphic banner)
-- One-line tagline + badges
-- Quick demo GIF (placeholder)
-- Features grid (3 columns)
-- Architecture + mermaid diagrams
-- Installation + Config (copy/paste commands)
-- UI Mockups + Accessibility notes
+</td>
+<td width="33%">
 
-Example hero (copy into README):
+### 🧠 LLM Agnostic
+Built for OpenAI but extensible to any LLM provider. Swap providers without rewriting core logic.
 
-```
-███████╗███████╗███████╗██████╗ ██╗     ██╗      ██████╗ ███████╗███████╗
-██╔════╝██╔════╝██╔════╝██╔══██╗██║     ██║     ██╔═══██╗██╔════╝██╔════╝
-█████╗  ███████╗█████╗  ██████╔╝██║     ██║     ██║   ██║█████╗  ███████╗
-██╔══╝  ╚════██║██╔══╝  ██╔══██╗██║     ██║     ██║   ██║██╔══╝  ╚════██║
-███████╗███████║███████╗██║  ██║███████╗███████╗╚██████╔╝███████╗███████║
-╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚══════╝╚══════╝
+</td>
+</tr>
+<tr>
+<td width="33%">
 
-NebulaForge — AI Agent Studio • Modular tools • Memory • Designer-friendly
-```
+### 🛡️ Production Ready
+Rate limiting, payload guards, and error handling built-in. Safe for demos and production use.
 
---------------------------------------------------------------------------------
+</td>
+<td width="33%">
 
-🧩 Architecture & Tech
+### ⚡ Real-time Response
+Stream agent responses as they happen. Beautiful UI keeps users engaged during processing.
 
-- Framework: Next.js 13
-- Language: TypeScript
-- Server: Next API routes for the agent logic
-- Optional LLM: OpenAI (configurable via `OPENAI_API_KEY`)
-- Memory: `data/memory.json` (file mode) or `better-sqlite3` for SQLite
-- Optional hosting: Vercel / Netlify / any Node-compatible host
+</td>
+<td width="33%">
 
-```mermaid
-graph TD
-	Client[Browser UI] --> API[Next.js API: /api/agent]
-	API --> Memory[(File / SQLite Memory)]
-	API --> Tools[External Tools]
-	API --> LLM[LLM Provider (OpenAI / other)]
-```
+### 🎨 Designer-Friendly
+Clean, modern interface with intuitive tool selection. No cryptic command lines—just chat naturally.
 
---------------------------------------------------------------------------------
+</td>
+</tr>
+</table>
 
-⚡ Quick Start
+---
 
-1. Install deps
+## 🏗️ How It Works
+
+**Your Workflow:**
+
+1. **You write a message** → The UI sends it to the agent API
+2. **The agent analyzes** → It decides which tools (if any) are needed
+3. **Tools execute** → External APIs run, data is gathered
+4. **Memory updates** → Conversation context is stored for future reference
+5. **Response streams** → The AI responds in real-time, and you see it unfold
+
+The entire flow is managed by TypeScript with type safety at every layer. No surprises. No data loss.
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- **Node.js** 16+ and npm
+- **OpenAI API key** (optional, for LLM functionality)
+
+### Installation
 
 ```bash
+# Clone and install dependencies
+git clone https://github.com/YOUR_USERNAME/nebula-forge.git
+cd nebula-forge
 npm install
 ```
 
-2. Set environment (optional for OpenAI)
+### Environment Setup
 
 ```bash
-echo "OPENAI_API_KEY=sk-..." > .env.local
+# Create .env.local file
+echo "OPENAI_API_KEY=sk-your-key-here" > .env.local
 ```
 
-3. Run locally
+For Windows users without native SQLite, enable file-based memory:
+
+```bash
+echo "FORCE_FILE_MEMORY=1" >> .env.local
+```
+
+### Run Locally
 
 ```bash
 npm run dev
 ```
 
-4. Open the app
-
-```bash
-open http://localhost:3000
-```
-
---------------------------------------------------------------------------------
-
-🔧 Configuration tips
-
-- To avoid native-build issues on Windows, set `FORCE_FILE_MEMORY=1` to use JSON memory instead of `better-sqlite3`.
-- Add `OPENAI_API_KEY` to your environment or Vercel project settings to enable LLM calls.
-
---------------------------------------------------------------------------------
-
-📁 Rename the project folder (local)
-
-If you want the folder itself renamed on your machine to match the project name (`nebula-forge`), run this from the parent directory in PowerShell:
-
-```powershell
-Move-Item -Path "project" -Destination "nebula-forge"
-```
-
-Or in Command Prompt / bash:
-
-```bash
-mv project nebula-forge
-```
-
-I did not rename the workspace folder directly. If you want, I can create a script to move files for you—say the word and I'll prepare it.
-
---------------------------------------------------------------------------------
-
-✨ Want more?
-
-- I can generate a themed SVG hero, embed a demo GIF, or scaffold a polished landing page from the UI mockup.
-- Tell me which screens you want first (Conversations, Tools, Settings) and I will scaffold components.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-Happy building — NebulaForge awaits.
+## ⚙️ Configuration
+
+### Environment Variables
+
+| Variable | Purpose | Required |
+|----------|---------|----------|
+| `OPENAI_API_KEY` | OpenAI LLM access | Optional (feature-gated) |
+| `FORCE_FILE_MEMORY` | Use JSON instead of SQLite | Optional (Windows) |
+
+### Memory Backends
+
+**File Mode** (default for Windows):
+- Stores conversations in `data/memory.json`
+- No native dependencies
+- Suitable for small to medium workloads
+
+**SQLite Mode** (default on macOS/Linux):
+- Uses `better-sqlite3` for persistence
+- Faster queries on large datasets
+- Requires native build tools
+
+### Deployment
+
+Deploy to **Vercel**, **Netlify**, or any Node-compatible host:
+
+1. Push to GitHub
+2. Connect your repo to Vercel/Netlify
+3. Add `OPENAI_API_KEY` to environment variables
+4. Deploy with one click
+
+---
+
+## 🔧 Architecture
+
+**Frontend** → Next.js + React (TypeScript)  
+**Backend** → Next.js API routes  
+**State** → Conversation memory (file or SQLite)  
+**LLM** → OpenAI API (pluggable)  
+**Tools** → Modular, extensible system
+
+---
+
+## 📁 Project Structure
+
+```
+nebula-forge/
+├── pages/
+│   ├── index.tsx           # Main UI entry point
+│   ├── _app.tsx            # App configuration
+│   └── api/
+│       └── agent.ts        # Agent logic & LLM calls
+├── lib/
+│   ├── agent.ts            # Core agent implementation
+│   ├── memory.ts           # Memory management
+│   ├── tools.ts            # Tool definitions
+│   └── utils.ts            # Utilities
+├── data/
+│   └── memory.json         # Persistent conversation data
+├── styles/
+│   └── globals.css         # Global styling
+└── public/                 # Static assets
+```
+
+---
+
+## 🛠️ Extending NebulaForge
+
+### Adding a New Tool
+
+Edit [lib/tools.ts](lib/tools.ts) and define your tool:
+
+```typescript
+export const myTool = {
+  name: "my_tool",
+  description: "Does something useful",
+  run: async (params) => {
+    // Your logic here
+    return result;
+  }
+};
+```
+
+### Changing the LLM Provider
+
+Edit [pages/api/agent.ts](pages/api/agent.ts) and swap the LLM initialization:
+
+```typescript
+// Replace OpenAI with your provider
+const response = await yourLLM.call(messages, tools);
+```
+
+---
+
+## 📦 Tech Stack
+
+- **Framework**: Next.js 13+ (React 18)
+- **Language**: TypeScript 5
+- **Styling**: CSS Modules / Tailwind-ready
+- **Storage**: File JSON or SQLite
+- **Deployment**: Vercel, Netlify, any serverless host
+
+---
+
+## 🤝 Contributing
+
+Have ideas? Found a bug? Open an issue or submit a PR—we'd love your input.
+
+---
+
+## 📄 License
+
+MIT
+
+---
+
+<div align="center">
+
+**Built with ❤️ for developers who love elegant AI.**
+
+[GitHub](https://github.com) • [Report Issues](https://github.com) • [Discussions](https://github.com)
+
+</div>
 
 
