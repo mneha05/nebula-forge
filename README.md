@@ -114,15 +114,6 @@ For Windows users without native SQLite, enable file-based memory:
 echo "FORCE_FILE_MEMORY=1" >> .env.local
 ```
 
-### Run Locally
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
 
 ## ⚙️ Configuration
 
